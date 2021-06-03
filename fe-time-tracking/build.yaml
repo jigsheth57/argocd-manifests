@@ -1,0 +1,16 @@
+#@ load("@ytt:data", "data")
+apiVersion: kpack.io/v1alpha1
+kind: Image
+metadata:
+  name: #@ data.values.APP_NAME
+  namespace: default
+spec:
+  builder:
+    kind: ClusterBuilder
+    name: default
+  serviceAccount: default
+  source:
+    git:
+      revision: #@ data.values.APP_IMAGE_REVISION
+      url: #@ data.values.APP_GIT_URL
+  tag: #@ data.values.APP_IMAGE_TAG

@@ -1,0 +1,15 @@
+apiVersion: kpack.io/v1alpha1
+kind: Image
+metadata:
+  name: fe-time-tracking
+  namespace: default
+spec:
+  builder:
+    kind: ClusterBuilder
+    name: default
+  serviceAccount: default
+  source:
+    git:
+      revision: null
+      url: null
+  tag: null

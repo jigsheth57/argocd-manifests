@@ -1,0 +1,9 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: fetimetracking
+spec:
+  template:
+    spec:
+      containers:
+      - image: kind-registry:5000/fetimetracking@sha256:d76c9032ca1e934b7b5b4afa3fbdcc2f21434f0d8453b418ce67cf8ef564c006
