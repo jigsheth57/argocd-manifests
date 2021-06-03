@@ -12,11 +12,11 @@ git add .
 git commit -m "update $APP_NAME $APP_IMAGE_REVISION"
 git push
 
-sleep 120
+sleep 240
 TEST_READINESS=`kubectl get images.kpack.io $APP_NAME -o json | jq -r '.status.conditions[] | select(.type=="Ready") | .status'`
 while [ ! $TEST_READINESS = "True" ]; do
     echo $(kubectl get images.kpack.io $APP_NAME -o json | jq -r '.status.conditions[] | select(.type=="Ready") | .message')
-    sleep 15
+    sleep 60
     TEST_READINESS=`kubectl get images.kpack.io $APP_NAME -o json | jq -r '.status.conditions[] | select(.type=="Ready") | .status'`
 done
 
