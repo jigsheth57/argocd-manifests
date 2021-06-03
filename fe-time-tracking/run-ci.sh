@@ -12,8 +12,16 @@ git add .
 git commit -m "update $APP_NAME $APP_IMAGE_REVISION"
 git push
 
-# ytt -f deploy.yaml --data-value-yaml APP_NAME=$APP_NAME --data-value-yaml APP_IMAGE_DIGEST="$(kubectl get images.kpack.io $APP_NAME -o json | jq -r '.status.latestImage')" -o yaml > app-deploy/deploy.yaml
-#
-# git add .
-# git commit -m "update $APP_NAME $APP_IMAGE_REVISION"
-# git push
+sleep 120
+TEST_READINESS=`kubectl get images.kpack.io $APP_NAME -o json | jq -r '.status.conditions[] | select(.type=="Ready") | .status'`
+while [ ! $TEST_READINESS = "True" ]; do
+    echo $(kubectl get images.kpack.io $APP_NAME -o json | jq -r '.status.conditions[] | select(.type=="Ready") | .message')
+    sleep 15
+    TEST_READINESS=`kubectl get images.kpack.io $APP_NAME -o json | jq -r '.status.conditions[] | select(.type=="Ready") | .status'`
+done
+
+ytt -f deploy.yaml --data-value-yaml APP_NAME=$APP_NAME --data-value-yaml APP_IMAGE_DIGEST="$(kubectl get images.kpack.io $APP_NAME -o json | jq -r '.status.latestImage')" -o yaml > app-deploy/deploy.yaml
+
+git add .
+git commit -m "update $APP_NAME $APP_IMAGE_REVISION"
+git push
