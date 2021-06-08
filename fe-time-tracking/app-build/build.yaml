@@ -12,4 +12,4 @@ spec:
     git:
       revision: v1.6
       url: https://github.com/jigsheth57/fe-time-tracking
-  tag: kind-registry:5000/fetimetracking
+  tag: harbor.run.haas-222.pez.pivotal.io/tbs/fetimetracking
