@@ -6,4 +6,4 @@ spec:
   template:
     spec:
       containers:
-      - image: harbor.run.haas-222.pez.pivotal.io/tbs/fetimetracking@sha256:2847627facdb9814d3ce3529cfa281d970789eaca666100f4d96787f3339e5ab
+      - image: harbor.run.haas-222.pez.pivotal.io/tbs/fetimetracking@sha256:4578310a22566fdfee2edc62f0bc006616e30e3796f1bca1847fd7dc2ea0a2ec
