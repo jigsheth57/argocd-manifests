@@ -3,7 +3,7 @@ apiVersion: kpack.io/v1alpha1
 kind: Image
 metadata:
   name: #@ data.values.APP_NAME
-  namespace: default
+  namespace: tbs
 spec:
   builder:
     kind: ClusterBuilder

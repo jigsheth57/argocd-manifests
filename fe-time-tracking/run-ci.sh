@@ -4,7 +4,8 @@ set -o errexit
 export APP_NAME="${1:fe-time-tracking}"
 export APP_IMAGE_REVISION="${2:-v1.0}"
 export APP_GIT_URL="${3:-https://github.com/jigsheth57/fe-time-tracking}"
-export APP_IMAGE_TAG="${4:-kind-registry:5000/fetimetracking}"
+# export APP_IMAGE_TAG="${4:-kind-registry:5000/fetimetracking}"
+export APP_IMAGE_TAG="${4:-harbor.run.haas-222.pez.pivotal.io/tbs/fetimetracking}"
 
 ytt -f build.yaml --data-value-yaml APP_NAME=$APP_NAME --data-value-yaml APP_IMAGE_REVISION=$APP_IMAGE_REVISION --data-value-yaml APP_GIT_URL=$APP_GIT_URL --data-value-yaml APP_IMAGE_TAG=$APP_IMAGE_TAG -o yaml > app-build/build.yaml
 
