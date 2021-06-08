@@ -6,4 +6,4 @@ spec:
   template:
     spec:
       containers:
-      - image: kind-registry:5000/fetimetracking@sha256:e045227ef737e908f1b8c4f416c05b3b70ee2e1f9f3ba2df2d2703cf1dcf89d1
+      - image: null
