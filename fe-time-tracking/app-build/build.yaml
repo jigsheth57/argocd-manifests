@@ -10,6 +10,6 @@ spec:
   serviceAccount: default
   source:
     git:
-      revision: v1.12
+      revision: v1.13
       url: https://github.com/jigsheth57/fe-time-tracking
   tag: harbor.run.haas-222.pez.pivotal.io/tbs/fetimetracking
