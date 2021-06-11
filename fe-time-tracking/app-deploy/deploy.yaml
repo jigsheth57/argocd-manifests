@@ -6,4 +6,4 @@ spec:
   template:
     spec:
       containers:
-      - image: null
+      - image: harbor.run.haas-222.pez.pivotal.io/tbs/fetimetracking@sha256:c575b8165e2c6e921f9f8cd14776387c4cdcaa1cbe9d9bc9d04e50f9e5f43d89
