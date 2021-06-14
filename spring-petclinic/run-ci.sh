@@ -1,7 +1,7 @@
 #!/bin/sh
 set -o errexit
 
-export APP_NAME="${1:spring-petclinic}"
+export APP_NAME="${1:-spring-petclinic}"
 export APP_IMAGE_REVISION="${2:-v1.0}"
 export APP_GIT_URL="${3:-https://github.com/jigsheth57/spring-petclinic}"
 # export APP_IMAGE_TAG="${4:-kind-registry:5000/fetimetracking}"
