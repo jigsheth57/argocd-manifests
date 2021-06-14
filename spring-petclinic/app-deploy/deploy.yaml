@@ -1,0 +1,9 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: spring-petclinic
+spec:
+  template:
+    spec:
+      containers:
+      - image: harbor.run.haas-222.pez.pivotal.io/tbs/spring-petclinic@sha256:6b3fc40e0f88126b1a615ff42015411a4151bd8d8f1f8becba5406672699d3c3
