@@ -1,7 +1,7 @@
 apiVersion: kpack.io/v1alpha1
 kind: Image
 metadata:
-  name: spring-petclinic
+  name: null
   namespace: tbs
 spec:
   builder:
