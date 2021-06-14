@@ -1,0 +1,10 @@
+#@ load("@ytt:data", "data")
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: #@ data.values.APP_NAME
+spec:
+  template:
+    spec:
+      containers:
+      - image: #@ data.values.APP_IMAGE_DIGEST

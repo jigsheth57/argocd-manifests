@@ -1,0 +1,9 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: fe-time-tracking
+spec:
+  template:
+    spec:
+      containers:
+      - image: harbor.run.haas-222.pez.pivotal.io/tbs/fetimetracking@sha256:b4ed25f8d45662d6abccf7c131ceed80e2f86bef08f7e9a77277aeef3de78e4a
