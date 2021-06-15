@@ -6,4 +6,4 @@ spec:
   template:
     spec:
       containers:
-      - image: harbor.run.haas-222.pez.pivotal.io/tbs/spring-petclinic@sha256:6b3fc40e0f88126b1a615ff42015411a4151bd8d8f1f8becba5406672699d3c3
+      - image: harbor.run.haas-222.pez.pivotal.io/tbs/spring-petclinic@sha256:70b6b5bb02da8d39a48dad41ad512e0836eba023be6a70646ddfe19b85901de5
