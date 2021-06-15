@@ -13,7 +13,8 @@ git add .
 git commit -m "update $APP_NAME $APP_IMAGE_REVISION"
 git push
 
-sleep 240
+argocd app sync spring-petclinic-build
+sleep 180
 TEST_READINESS=`kubectl get images.kpack.io $APP_NAME -o json | jq -r '.status.conditions[] | select(.type=="Ready") | .status'`
 while [ ! $TEST_READINESS = "True" ]; do
     echo $(kubectl get images.kpack.io $APP_NAME -o json | jq -r '.status.conditions[] | select(.type=="Ready") | .message')
@@ -26,3 +27,5 @@ ytt -f deploy.yaml --data-value-yaml APP_NAME=$APP_NAME --data-value-yaml APP_IM
 git add .
 git commit -m "update $APP_NAME $APP_IMAGE_REVISION"
 git push
+
+argocd app sync spring-petclinic-deploy
